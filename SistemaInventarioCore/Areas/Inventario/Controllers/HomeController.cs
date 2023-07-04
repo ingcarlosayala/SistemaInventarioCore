@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SistemaInventarioCore.Models.Especificaciones;
+using SistemaInventarioCore.AccesoDato.Repositorio;
 using SistemaInventarioCore.AccesoDato.Repositorio.IRepositorio;
 using SistemaInventarioCore.Models;
 using SistemaInventarioCore.Models.ViewsModels;
@@ -16,11 +18,48 @@ namespace SistemaInventarioCore.Areas.Inventario.Controllers
             this.unidadTrabajo = unidadTrabajo;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int pageNumber = 1, string busqueda = "", string busquedaActual = "")
         {
-            IEnumerable<Producto> producto = await unidadTrabajo.Producto.ObtenerTodos();
+            if (!string.IsNullOrEmpty(busqueda))
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                busqueda = busquedaActual;
+            }
 
-            return View(producto);
+            ViewData["BusquedaActual"] = busqueda;
+
+            if (pageNumber < 1)
+            {
+                pageNumber = 1;
+            }
+
+            Parametros parametros = new Parametros()
+            {
+                PageNumber = pageNumber,
+                PageSize = 4
+            };
+
+            var resultado = unidadTrabajo.Producto.ObtenerTodosPaginado(parametros);
+
+            if (!string.IsNullOrEmpty(busqueda))
+            {
+                resultado = unidadTrabajo.Producto.ObtenerTodosPaginado(parametros, p => p.Nombre.Contains(busqueda));
+            }
+
+            ViewData["TotalPaginas"] = resultado.MetaData.TotalPages;
+            ViewData["TotalRegistros"] = resultado.MetaData.TotalCount;
+            ViewData["PageSize"] = resultado.MetaData.PageSize;
+            ViewData["PageNumber"] = pageNumber;
+            ViewData["Previo"] = "disabled";  // clase css para desactivar el boton
+            ViewData["Siguiente"] = "";
+
+            if (pageNumber > 1) { ViewData["Previo"] = ""; }
+            if (resultado.MetaData.TotalPages <= pageNumber) { ViewData["Siguiente"] = "disabled"; }
+
+            return View(resultado);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
