@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SistemaInventarioCore.Models.Marca>
+
+@{
+    ViewData["Title"] = "Lista de Marcas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xl">
+    <h1 class="text-center my-4 fw-bold">Lista de Marca</h1>
+
+    <div class="d-md-flex justify-content-end mb-3">
+        <a asp-action="Crear" class="btn btn-primary"> <i class="fa-regular fa-plus"></i> Nueva Marca</a>
+    </div>
+
+
+    <div class="table-responsive shadow p-2 rounded bg-white">
+        <table id="tblDato" class="table table-striped w-100">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(b => b.Nombre)</th>
+                    <th>@Html.DisplayNameFor(b => b.Estado)</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/marca.js"></script>
+}
+

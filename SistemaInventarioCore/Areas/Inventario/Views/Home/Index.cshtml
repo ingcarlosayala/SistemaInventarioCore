@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SistemaInventarioCore.Models.Producto>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<header class="header">
+    <div class="container pt-sm-5">
+        <div class="heading-primary">
+            Los Mejores Productos & <br />
+            Marcas en nuestra Tienda
+        </div>
+    </div>
+</header>
+
+<div class="container-xl my-2">
+    <form asp-action="Index" method="get">
+        <div class="col-lg-6 col-md-6 col-sm-6 d-flex">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Buscar ..." aria-label="Buscar" aria-describedby="button-addon2"
+                       name="busqueda" value="@ViewData["BusquedaActual"]" />
+                <button type="submit" class="btn btn-outline-primary">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        @foreach (var producto in Model)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+                <div class="card w-100 my-2 border-0 shadow rounded border-5 border-top border-primary">
+                    <img src="@producto.ImagenUrl" class="card-img-top" style="aspect-ratio: 1 / 1" />
+                    <div class="card-body">
+                        <h5 class="card-title">@producto.Nombre</h5>
+                        <p class="card-text"> $ @String.Format("{0:#,##0.00}", producto.Precio) </p>
+                        <div class="d-flex align-items-end pt-3 px-0 pb-0 mt-auto bg-white">
+                            <a asp-action="Detalle" asp-route-id="@producto.Id" class="btn btn-outline-primary w-100">
+                                <i class="bi bi-tags-fill"></i> Detalle
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

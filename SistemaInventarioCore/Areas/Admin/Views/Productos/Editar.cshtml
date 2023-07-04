@@ -1,0 +1,108 @@
+﻿@model SistemaInventarioCore.Models.ViewsModels.ProductoVM
+
+@{
+    ViewData["Title"] = "Actualizar Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xl">
+    <form asp-action="Editar" enctype="multipart/form-data">
+        <div class="row mt-5 align-items-center">
+            <input hidden asp-for="Producto.Id" />
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="col-md-6 col-lg-6">
+                <div class="card bg-white shadow">
+                    <div class="card-header bg-primary p-5 text-center p-md-2 text-md-start">
+                        <h5 class="text-white"> <i class="fa-solid fa-file-circle-plus"></i> Actualizar Producto</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <label asp-for="Producto.Codigo" class="form-label text-uppercase text-muted fw-bold"></label>
+                            <input asp-for="Producto.Codigo" type="number" class="form-control" placeholder="Codigo del Producto" />
+                            <span asp-validation-for="Producto.Codigo" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class=" col-md-6">
+                                <div class="mb-2">
+                                    <label asp-for="Producto.Nombre" class="form-label text-uppercase text-muted fw-bold"></label>
+                                    <input asp-for="Producto.Nombre" type="text" class="form-control" placeholder="Nombre del Producto" />
+                                    <span asp-validation-for="Producto.Nombre" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class=" col-md-6 mb-3">
+                                <label for="imagen" class="form-label text-uppercase text-muted fw-bold">Imagen</label>
+                                <input type="file" name="files" id="imagen" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="mb-2">
+                            <label asp-for="Producto.Descripcion" class="form-label text-uppercase text-muted fw-bold"></label>
+                            <input asp-for="Producto.Descripcion" type="text" class="form-control" placeholder="Descripcion del Producto" />
+                            <span asp-validation-for="Producto.Descripcion" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+
+                                <div class="mb-2">
+                                    <label asp-for="Producto.Costo" class="form-label text-uppercase text-muted fw-bold"></label>
+                                    <input asp-for="Producto.Costo" type="number" class="form-control" placeholder="$ 0.00" />
+                                    <span asp-validation-for="Producto.Costo" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+
+                                <div class="mb-2">
+                                    <label asp-for="Producto.Precio" class="form-label text-uppercase text-muted fw-bold"></label>
+                                    <input asp-for="Producto.Precio" type="number" class="form-control" placeholder="$ 0.00" />
+                                    <span asp-validation-for="Producto.Precio" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class=" col-md-6">
+                                <div class="mb-2">
+                                    <label asp-for="Producto.Categoria.Nombre" class="form-label text-uppercase text-muted fw-bold"></label>
+                                    <select asp-for="Producto.CategoriaId" asp-items="@Model.ListaCategorias" class="form-select">
+                                        <option disabled selected>Seleccion una Categoria</option>
+                                    </select>
+                                    <span asp-validation-for="Producto.CategoriaId" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class=" col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Producto.Marca.Nombre" class="form-label text-uppercase text-muted fw-bold"></label>
+                                    <select asp-for="Producto.MarcaId" asp-items="@Model.ListaMarcas" class="form-select">
+                                        <option disabled selected>Seleccion una Marca</option>
+                                    </select>
+                                    <span asp-validation-for="Producto.MarcaId" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-success"> <i class="fa-solid fa-pen-to-square"></i> Guardar Cambios</button>
+                            <a asp-action="Index" class="btn btn-outline-secondary"> <i class="fa-solid fa-arrow-left-long"></i> Atras</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-5 offset-lg-1">
+                <img src="@Model.Producto.ImagenUrl" class="img-fluid shadow rounded-3 bg-white border border-0 border-5 border-top border-primary" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+

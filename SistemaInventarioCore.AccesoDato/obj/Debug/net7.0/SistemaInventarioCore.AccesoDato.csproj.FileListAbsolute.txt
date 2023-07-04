@@ -1,0 +1,15 @@
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\bin\Debug\net7.0\SistemaInventarioCore.AccesoDato.deps.json
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\bin\Debug\net7.0\SistemaInventarioCore.AccesoDato.dll
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\bin\Debug\net7.0\SistemaInventarioCore.AccesoDato.pdb
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\bin\Debug\net7.0\SistemaInventarioCore.Models.dll
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\bin\Debug\net7.0\SistemaInventarioCore.Models.pdb
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\obj\Debug\net7.0\SistemaInventarioCore.AccesoDato.csproj.AssemblyReference.cache
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\obj\Debug\net7.0\SistemaInventarioCore.AccesoDato.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\obj\Debug\net7.0\SistemaInventarioCore.AccesoDato.AssemblyInfoInputs.cache
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\obj\Debug\net7.0\SistemaInventarioCore.AccesoDato.AssemblyInfo.cs
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\obj\Debug\net7.0\SistemaInventarioCore.AccesoDato.csproj.CoreCompileInputs.cache
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\obj\Debug\net7.0\SistemaInventarioCore.AccesoDato.csproj.CopyComplete
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\obj\Debug\net7.0\SistemaInventarioCore.AccesoDato.dll
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\obj\Debug\net7.0\refint\SistemaInventarioCore.AccesoDato.dll
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\obj\Debug\net7.0\SistemaInventarioCore.AccesoDato.pdb
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore.AccesoDato\obj\Debug\net7.0\ref\SistemaInventarioCore.AccesoDato.dll
