@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bOp6Dns5FH1wfKLIBGef4CeZGqCOzg1pPBwVASxjQks=",
+  "Hash": "UxkGIt6mr7yj9+70BzPhgrDsVRMHOcbV6Zi83dPBu/M=",
   "Source": "SistemaInventarioCore",
   "BasePath": "_content/SistemaInventarioCore",
   "Mode": "Default",
@@ -1137,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imagenes\\icono.png"
+    },
+    {
+      "Identity": "C:\\Users\\carlo\\Desktop\\SistemaInventario7\\SistemaInventarioCore\\SistemaInventarioCore\\wwwroot\\imagenes\\producto\\541757b0-6388-4b2d-85c8-9c39725d37cc.JPG",
+      "SourceId": "SistemaInventarioCore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\carlo\\Desktop\\SistemaInventario7\\SistemaInventarioCore\\SistemaInventarioCore\\wwwroot\\",
+      "BasePath": "_content/SistemaInventarioCore",
+      "RelativePath": "imagenes/producto/541757b0-6388-4b2d-85c8-9c39725d37cc.JPG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\producto\\541757b0-6388-4b2d-85c8-9c39725d37cc.JPG"
     },
     {
       "Identity": "C:\\Users\\carlo\\Desktop\\SistemaInventario7\\SistemaInventarioCore\\SistemaInventarioCore\\wwwroot\\imagenes\\producto\\983513d9-dc85-4000-989a-61b3b649519c.JPG",
