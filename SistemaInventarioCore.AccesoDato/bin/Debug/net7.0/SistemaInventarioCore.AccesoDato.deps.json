@@ -1744,7 +1744,8 @@
       },
       "SistemaInventarioCore.Models/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.2.0"
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.2.0",
+          "Microsoft.Extensions.Identity.Stores": "7.0.8"
         },
         "runtime": {
           "SistemaInventarioCore.Models.dll": {}

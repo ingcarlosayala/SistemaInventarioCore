@@ -12,6 +12,7 @@ namespace SistemaInventarioCore.AccesoDato.Repositorio.IRepositorio
         IMarcaRepositorio Marca { get; }
         ICategoriaRepositorio Categoria { get; }
         IProductoRepositorio Producto { get; }
+        IUsuarioAplicacionRepositorio UsuarioAplicacion { get; }
 
         Task<bool> Existe(string nombre);
 
