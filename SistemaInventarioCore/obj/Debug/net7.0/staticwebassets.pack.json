@@ -61,6 +61,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "C:\\Users\\carlo\\Desktop\\SistemaInventario7\\SistemaInventarioCore\\SistemaInventarioCore\\wwwroot\\js\\usuario.js",
+      "PackagePath": "staticwebassets\\js\\usuario.js"
+    },
+    {
       "Id": "C:\\Users\\carlo\\Desktop\\SistemaInventario7\\SistemaInventarioCore\\SistemaInventarioCore\\wwwroot\\js\\validarImagen.js",
       "PackagePath": "staticwebassets\\js\\validarImagen.js"
     },

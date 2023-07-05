@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3CNnT7yhGaXJavmIfAaJLhvyHKNBKMsc3Zmb23Bxf2M=",
+  "Hash": "CUSMFFmBssShtUYn7XIrNFVn6iSBne3AfKaiPohpa6Y=",
   "Source": "SistemaInventarioCore",
   "BasePath": "_content/SistemaInventarioCore",
   "Mode": "Default",
@@ -1307,6 +1307,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\carlo\\Desktop\\SistemaInventario7\\SistemaInventarioCore\\SistemaInventarioCore\\wwwroot\\js\\usuario.js",
+      "SourceId": "SistemaInventarioCore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\carlo\\Desktop\\SistemaInventario7\\SistemaInventarioCore\\SistemaInventarioCore\\wwwroot\\",
+      "BasePath": "_content/SistemaInventarioCore",
+      "RelativePath": "js/usuario.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\usuario.js"
     },
     {
       "Identity": "C:\\Users\\carlo\\Desktop\\SistemaInventario7\\SistemaInventarioCore\\SistemaInventarioCore\\wwwroot\\js\\validarImagen.js",

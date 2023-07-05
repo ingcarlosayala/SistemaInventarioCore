@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SistemaInventarioCore.Models.UsuarioAplicacion>
+
+@{
+    ViewData["Title"] = "Lista de Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xl">
+    <h1 class="text-center my-4 fw-bold">Lista de Usuarios</h1>
+
+    <div class="d-md-flex justify-content-end mb-3">
+        <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-primary"> <i class="fa-regular fa-plus"></i> Nuevo Usuario</a>
+    </div>
+
+
+    <div class="table-responsive shadow p-2 rounded bg-white">
+        <table id="tblDato" class="table table-striped w-100">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(b => b.Nombre)</th>
+                    <th>@Html.DisplayNameFor(b => b.Apellido)</th>
+                    <th>@Html.DisplayNameFor(b => b.Email)</th>
+                    <th>@Html.DisplayNameFor(b => b.PhoneNumber)</th>
+                    <th>@Html.DisplayNameFor(b => b.Role)</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/usuario.js"></script>
+}
+
