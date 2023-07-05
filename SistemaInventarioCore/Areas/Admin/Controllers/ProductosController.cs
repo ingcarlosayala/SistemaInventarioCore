@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SistemaInventarioCore.AccesoDato.Repositorio.IRepositorio;
 using SistemaInventarioCore.Models;
 using SistemaInventarioCore.Models.ViewsModels;
+using SistemaInventarioCore.Utilidades;
+using System.Data;
 using System.Drawing;
 
 namespace SistemaInventarioCore.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = DS.Role_Admin + "," + DS.Role_Inventario)]
     public class ProductosController : Controller
     {
         private readonly IUnidadTrabajo unidadTrabajo;
