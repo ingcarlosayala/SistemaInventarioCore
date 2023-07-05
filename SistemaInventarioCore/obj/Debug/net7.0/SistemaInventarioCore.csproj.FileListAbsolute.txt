@@ -267,3 +267,5 @@ C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventari
 C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore\obj\Debug\net7.0\SistemaInventarioCore.pdb
 C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore\obj\Debug\net7.0\SistemaInventarioCore.genruntimeconfig.cache
 C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore\obj\Debug\net7.0\ref\SistemaInventarioCore.dll
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore\bin\Debug\net7.0\SistemaInventarioCore.Utilidades.dll
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore\bin\Debug\net7.0\SistemaInventarioCore.Utilidades.pdb

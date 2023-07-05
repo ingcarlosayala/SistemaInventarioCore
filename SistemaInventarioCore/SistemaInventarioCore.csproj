@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SistemaInventarioCore.AccesoDato\SistemaInventarioCore.AccesoDato.csproj" />
     <ProjectReference Include="..\SistemaInventarioCore.Models\SistemaInventarioCore.Models.csproj" />
+    <ProjectReference Include="..\SistemaInventarioCore.Utilidades\SistemaInventarioCore.Utilidades.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4691,6 +4691,19 @@
         "runtime": {
           "bin/placeholder/SistemaInventarioCore.Models.dll": {}
         }
+      },
+      "SistemaInventarioCore.Utilidades/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.UI": "7.0.8"
+        },
+        "compile": {
+          "bin/placeholder/SistemaInventarioCore.Utilidades.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SistemaInventarioCore.Utilidades.dll": {}
+        }
       }
     }
   },
@@ -12932,6 +12945,11 @@
       "type": "project",
       "path": "../SistemaInventarioCore.Models/SistemaInventarioCore.Models.csproj",
       "msbuildProject": "../SistemaInventarioCore.Models/SistemaInventarioCore.Models.csproj"
+    },
+    "SistemaInventarioCore.Utilidades/1.0.0": {
+      "type": "project",
+      "path": "../SistemaInventarioCore.Utilidades/SistemaInventarioCore.Utilidades.csproj",
+      "msbuildProject": "../SistemaInventarioCore.Utilidades/SistemaInventarioCore.Utilidades.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -12943,7 +12961,8 @@
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.8",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.7",
       "SistemaInventarioCore.AccesoDato >= 1.0.0",
-      "SistemaInventarioCore.Models >= 1.0.0"
+      "SistemaInventarioCore.Models >= 1.0.0",
+      "SistemaInventarioCore.Utilidades >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -12978,6 +12997,9 @@
             },
             "C:\\Users\\carlo\\Desktop\\SistemaInventario7\\SistemaInventarioCore\\SistemaInventarioCore.Models\\SistemaInventarioCore.Models.csproj": {
               "projectPath": "C:\\Users\\carlo\\Desktop\\SistemaInventario7\\SistemaInventarioCore\\SistemaInventarioCore.Models\\SistemaInventarioCore.Models.csproj"
+            },
+            "C:\\Users\\carlo\\Desktop\\SistemaInventario7\\SistemaInventarioCore\\SistemaInventarioCore.Utilidades\\SistemaInventarioCore.Utilidades.csproj": {
+              "projectPath": "C:\\Users\\carlo\\Desktop\\SistemaInventario7\\SistemaInventarioCore\\SistemaInventarioCore.Utilidades\\SistemaInventarioCore.Utilidades.csproj"
             }
           }
         }

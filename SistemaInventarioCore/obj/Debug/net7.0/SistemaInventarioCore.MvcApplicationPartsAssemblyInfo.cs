@@ -14,6 +14,7 @@ using System.Reflection;
 [assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("Microsoft.AspNetCore.Identity.UI")]
 [assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("SistemaInventarioCore.AccesoDato")]
 [assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("SistemaInventarioCore.Models")]
+[assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("SistemaInventarioCore.Utilidades")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
 

@@ -15,7 +15,8 @@
           "Microsoft.EntityFrameworkCore.Tools": "7.0.8",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.7",
           "SistemaInventarioCore.AccesoDato": "1.0.0",
-          "SistemaInventarioCore.Models": "1.0.0"
+          "SistemaInventarioCore.Models": "1.0.0",
+          "SistemaInventarioCore.Utilidades": "1.0.0"
         },
         "runtime": {
           "SistemaInventarioCore.dll": {}
@@ -2848,6 +2849,14 @@
         "runtime": {
           "SistemaInventarioCore.Models.dll": {}
         }
+      },
+      "SistemaInventarioCore.Utilidades/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.UI": "7.0.8"
+        },
+        "runtime": {
+          "SistemaInventarioCore.Utilidades.dll": {}
+        }
       }
     }
   },
@@ -4725,6 +4734,11 @@
       "sha512": ""
     },
     "SistemaInventarioCore.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SistemaInventarioCore.Utilidades/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

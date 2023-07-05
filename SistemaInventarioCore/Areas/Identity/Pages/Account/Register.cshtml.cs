@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -16,8 +17,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using SistemaInventarioCore.Models;
+using SistemaInventarioCore.Utilidades;
 
 namespace SistemaInventarioCore.Areas.Identity.Pages.Account
 {
@@ -29,13 +33,15 @@ namespace SistemaInventarioCore.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<IdentityUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly RoleManager<IdentityRole> roleManager;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -43,6 +49,7 @@ namespace SistemaInventarioCore.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            this.roleManager = roleManager;
         }
 
         /// <summary>
@@ -74,7 +81,7 @@ namespace SistemaInventarioCore.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "Imal es requerido")]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -83,8 +90,8 @@ namespace SistemaInventarioCore.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "Password es requerido")]
+            [StringLength(100, ErrorMessage = "The {0} al menos debe ser {2} y al maximo {1} Caracteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
@@ -94,15 +101,55 @@ namespace SistemaInventarioCore.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Confirmar password")]
+            [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
             public string ConfirmPassword { get; set; }
+
+            [Required(ErrorMessage = "Telefono es requerido")]
+            [Display(Name = "Telefono")]
+            [DataType(DataType.PhoneNumber)]
+            public string PhoneNumber { get; set; }
+
+            [Required(ErrorMessage = "Nombre es requerido")]
+            [MaxLength(60)]
+            public string Nombre { get; set; }
+
+            [Required(ErrorMessage = "Apellido es requerido")]
+            [MaxLength(80)]
+            public string Apellido { get; set; }
+
+            [Required(ErrorMessage = "Direccion es requerido")]
+            [MaxLength(200)]
+            public string Direccion { get; set; }
+
+            [Required(ErrorMessage = "Ciudad es requerido")]
+            [MaxLength(60)]
+            public string Ciudad { get; set; }
+
+            [Required(ErrorMessage = "Pais es requerido")]
+            [MaxLength(60)]
+            public string Pais { get; set; }
+
+            [NotMapped]
+            public string Role { get; set; }
+
+            public IEnumerable<SelectListItem> ListaRol { get; set; }
         }
 
 
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
+
+            Input = new InputModel()
+            {
+                ListaRol = roleManager.Roles.Where(ro => ro.Name!= DS.Role_Cliente).Select(n => n.Name).Select(l => new SelectListItem
+                {
+                    Text = l,
+                    Value = l
+                })
+            };
+
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
@@ -112,7 +159,21 @@ namespace SistemaInventarioCore.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = CreateUser();
+                //var user = CreateUser();
+
+                var user = new UsuarioAplicacion
+                {
+                    UserName = Input.Email,
+                    PhoneNumber = Input.PhoneNumber,
+                    Email = Input.Email,
+                    Nombre = Input.Nombre,
+                    Apellido = Input.Apellido,
+                    Direccion = Input.Direccion,
+                    Ciudad = Input.Ciudad,
+                    Pais = Input.Pais,
+                    Role = Input.Role
+
+                };
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
@@ -122,17 +183,40 @@ namespace SistemaInventarioCore.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    var userId = await _userManager.GetUserIdAsync(user);
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                    var callbackUrl = Url.Page(
-                        "/Account/ConfirmEmail",
-                        pageHandler: null,
-                        values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
-                        protocol: Request.Scheme);
+                    //Creacion de Roles si no Existen
+                    if (!await roleManager.RoleExistsAsync(DS.Role_Admin))
+                    {
+                        await roleManager.CreateAsync(new IdentityRole(DS.Role_Admin));
+                    }
+                    if (!await roleManager.RoleExistsAsync(DS.Role_Cliente))
+                    {
+                        await roleManager.CreateAsync(new IdentityRole(DS.Role_Cliente));
+                    }
+                    if (!await roleManager.RoleExistsAsync(DS.Role_Inventario))
+                    {
+                        await roleManager.CreateAsync(new IdentityRole(DS.Role_Inventario));
+                    }
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    if (user.Role == null) // El Valor que resibe desde el page
+                    {
+                        await _userManager.AddToRoleAsync(user, DS.Role_Cliente);
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, user.Role);
+                    }
+
+                    var userId = await _userManager.GetUserIdAsync(user);
+                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    //var callbackUrl = Url.Page(
+                    //    "/Account/ConfirmEmail",
+                    //    pageHandler: null,
+                    //    values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
+                    //    protocol: Request.Scheme);
+
+                    //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -140,8 +224,16 @@ namespace SistemaInventarioCore.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                        if (user.Role == null)
+                        {
+                            await _signInManager.SignInAsync(user, isPersistent: false);
+                            return LocalRedirect(returnUrl);
+                        }
+                        else
+                        {
+                            //Administrador esta registrando un nuevo usuario
+                            return RedirectToAction("Index","Usuarios", new { Area = "Admin" });
+                        }
                     }
                 }
                 foreach (var error in result.Errors)
