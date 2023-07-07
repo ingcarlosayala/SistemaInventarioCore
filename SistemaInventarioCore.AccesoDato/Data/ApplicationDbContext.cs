@@ -17,5 +17,9 @@ namespace SistemaInventarioCore.AccesoDato.Data
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Producto> Producto { get; set; }
         public DbSet<UsuarioAplicacion> UsuarioAplicacion { get; set; }
+        public DbSet<BodegaProducto> BodegaProducto { get; set; }
+        public DbSet<Inventario> Inventario { get; set; }
+        public DbSet<InventarioDetalle> InventarioDetalle { get; set; }
+        public DbSet<KardexInventario> KardexInventario { get; set; }
     }
 }

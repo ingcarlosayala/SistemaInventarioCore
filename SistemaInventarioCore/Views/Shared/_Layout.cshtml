@@ -14,6 +14,8 @@
 
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SistemaInventarioCore.styles.css" asp-append-version="true" />
+
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -52,6 +54,16 @@
                                 </div>
                             </li>
                         }
+
+                        @if (User.IsInRole(DS.Role_Admin) || User.IsInRole(DS.Role_Inventario))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" asp-area="Admin" role="button" aria-haspopup="true" aria-expanded="false">Inventario</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item text-dark" asp-area="Inventario" asp-controller="Inventarios" asp-action="Index">Inventario</a>
+                                </div>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -77,7 +89,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://kit.fontawesome.com/5c3d29c8ed.js" crossorigin="anonymous"></script>
-
+    <script src="~/lib/select2/js/select2.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

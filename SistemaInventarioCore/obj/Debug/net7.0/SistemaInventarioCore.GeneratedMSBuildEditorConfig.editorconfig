@@ -240,6 +240,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJpb1xWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/carlo/Desktop/SistemaInventario7/SistemaInventarioCore/SistemaInventarioCore/Areas/Inventario/Views/Inventarios/DetalleInventario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJpb1xWaWV3c1xJbnZlbnRhcmlvc1xEZXRhbGxlSW52ZW50YXJpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/carlo/Desktop/SistemaInventario7/SistemaInventarioCore/SistemaInventarioCore/Areas/Inventario/Views/Inventarios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJpb1xWaWV3c1xJbnZlbnRhcmlvc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/carlo/Desktop/SistemaInventario7/SistemaInventarioCore/SistemaInventarioCore/Areas/Inventario/Views/Inventarios/NuevoInventario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJpb1xWaWV3c1xJbnZlbnRhcmlvc1xOdWV2b0ludmVudGFyaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/carlo/Desktop/SistemaInventario7/SistemaInventarioCore/SistemaInventarioCore/Areas/Inventario/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJpb1xWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

@@ -18,6 +18,10 @@ namespace SistemaInventarioCore.AccesoDato.Repositorio
         public ICategoriaRepositorio Categoria { get; private set; }
         public IProductoRepositorio Producto { get; private set; }
         public IUsuarioAplicacionRepositorio UsuarioAplicacion { get; private set; }
+        public IBodegaProductoRepositorio BodegaProducto { get; private set; }
+        public IInventarioRepositorio Inventario { get; private set; }
+        public IInventarioDetalleRepositorio InventarioDetalle { get; private set; }
+        public IKardexInventarioRepositorio KardexInventario { get; private set; }
 
         public UnidadTrabajo(ApplicationDbContext dbContext)
         {
@@ -27,6 +31,10 @@ namespace SistemaInventarioCore.AccesoDato.Repositorio
             Categoria = new CategoriaRepositorio(dbContext);
             Producto = new ProductoRepositorio(dbContext);
             UsuarioAplicacion = new UsuarioAplicacionRepositorio(dbContext);
+            BodegaProducto = new BodegaProductoRepositorio(dbContext);
+            Inventario = new InventarioRepositorio(dbContext);
+            InventarioDetalle = new InventarioDetalleRepositorio(dbContext);
+            KardexInventario = new KardexInventarioRepositorio(dbContext);
         }
 
         public void Dispose()

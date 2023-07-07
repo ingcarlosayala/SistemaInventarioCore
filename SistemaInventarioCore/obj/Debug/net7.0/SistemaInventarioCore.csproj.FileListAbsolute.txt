@@ -269,3 +269,6 @@ C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventari
 C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore\obj\Debug\net7.0\ref\SistemaInventarioCore.dll
 C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore\bin\Debug\net7.0\SistemaInventarioCore.Utilidades.dll
 C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore\bin\Debug\net7.0\SistemaInventarioCore.Utilidades.pdb
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore\bin\Debug\net7.0\SendGrid.dll
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore\bin\Debug\net7.0\StarkbankEcdsa.dll
+C:\Users\carlo\Desktop\SistemaInventario7\SistemaInventarioCore\SistemaInventarioCore\bin\Debug\net7.0\libman.json

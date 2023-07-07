@@ -1,0 +1,170 @@
+﻿@model SistemaInventarioCore.Models.ViewsModels.InventarioVM
+@{
+    ViewData["Title"] = "Detalle Inventario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-xl">
+
+    <form method="post">
+        <div class="row mt-5">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <div class="card bg-white shadow">
+                    <div class="card-header bg-dark p-5 text-center p-md-2 text-md-start d-md-flex justify-content-md-between">
+                        <h5 class="text-white"> <i class="fa-solid fa-file-circle-plus"></i> Agregar Detalle Inventario</h5>
+                        <a asp-action="Index" class="text-decoration-none text-white">Salir</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <input asp-for="Inventario.Id" id="inventarioId" name="InventarioId" hidden />
+                            <label asp-for="Inventario.Bodega.Nombre" class="form-label text-uppercase text-muted fw-bold"></label>
+                            <input asp-for="Inventario.Bodega.Nombre" type="text" class="form-control" disabled />
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="form-group col-md-3">
+                                <label class="text-primary">Agregar Detalle</label>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="form-group col-md-6 mb-2">
+                                <select class="form-select" id="productoId" name="productoId">
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2 mb-2">
+                                <input class="form-control text-end" placeholder="Cantidad" type="number" min="1" id="cantidadId" name="cantidadId" />
+                            </div>
+                            <div class="form-group col-md-2 mb-2">
+                                <button type="submit" class="btn btn-primary" onfocus="false" id="btnAgregar">
+                                    Agregar
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-striped shadow mt-5 rounded">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Marca</th>
+                <th>Costo</th>
+                <th>Stock</th>
+                <th>Cantidad</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.InventarioDetalles)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(d=> item.Producto.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(d=> item.Producto.Marca.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(d=> item.Producto.Costo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(d=> item.StockAnterior)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(d=> item.Cantidad)
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-sm text-white" asp-action="Mas" asp-route-id="@item.Id">
+                            <i class="fa-solid fa-plus"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm text-white" asp-action="Menos" asp-route-id="@item.Id">
+                            <i class="fa-solid fa-minus"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+    @if (Model.InventarioDetalles.Count() > 0)
+    {
+        <div class="align-content-lg-center">
+            <div class="col-2">
+                <a asp-action="GenerarStock" class="btn btn-warning form-control" asp-route-id="@Model.Inventario.Id">
+                    Generar Stock
+                </a>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+@section Scripts {
+
+    <script>
+        // Select 2
+        $("#productoId").select2({
+            placeholder: "Seleccionar Producto",
+            allowClear: true,
+            ajax: {
+                url: "/Inventario/Inventarios/BuscarProducto",
+                contentType: "application/json; charset=utf-8",
+                data: function (params) {
+                    var query =
+                    {
+                        term: params.term
+                    };
+                    return query;
+                },
+                processResults: function (result) {
+                    return {
+                        results: $.map(result, function (item) {
+                            return {
+                                id: item.id,
+                                text: item.codigo + ' ' + item.nombre
+                            };
+                        })
+                    };
+                }
+            }
+        });
+
+    </script>
+
+    <script>
+        $("#btnAgregar").click(function () {
+            let cantidad = document.getElementById("cantidadId").value;
+            let producto = document.getElementById("productoId").value;
+
+            if (cantidad.toString() == '' || cantidad < 1) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Ingrese una Cantidad Correcta!',
+                })
+                return false;
+            }
+            if (producto.toString() == '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Seleccione un producto!',
+                })
+                return false;
+            }
+        });
+
+    </script>
+
+
+}
